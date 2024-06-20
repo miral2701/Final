@@ -1,0 +1,42 @@
+﻿<Window x:Class="WPF_Final.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_Final"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Margin="0,0,0,-6">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="162*"></RowDefinition>
+            <RowDefinition Height="55*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <ListBox Name="listBox1" Grid.Row="0" Grid.Column="0" ItemsSource="{Binding Collection, Mode=TwoWay}"  SelectionChanged="listBox1_SelectionChanged">
+         
+
+
+        </ListBox>
+        <ListView Name="listView1"  ItemsSource="{Binding Collection2, Mode=TwoWay}" Grid.Row="0" Grid.Column="1" >
+           
+        </ListView>
+
+        <Button Grid.Row="01" Name="ChangeButton1" Grid.Column="0" Content="Change" Command="{Binding ChangeCommand }" Height="20" Width="60" Background="Aqua" Margin="157,30,183,60">
+        </Button>
+        <Button Grid.Row="01"  Name="DeleteButton1" Grid.Column="0" Command="{Binding DeleteCommand}" Content="Delete" Height="20" Width="60" Background="Red" Margin="290,30,50,60">
+        </Button>
+        <Button Grid.Row="01"  Name="AddButton1" Grid.Column="0" Command="{Binding AddCommand}" Content="Add" Height="20" Width="60" Background="Green" Margin="26,30,314,60">
+        </Button>
+
+        <Button Grid.Row="01" Name="ChangeButton2" Grid.Column="1" Content="Change"  Command="{Binding ChangeTaskCommand }" Height="20" Width="60" Background="Aqua" Margin="156,30,184,60">
+        </Button>
+        <Button Grid.Row="01"  Name="DeleteButton2" Grid.Column="1" Content="Delete"  Command="{Binding DeleteTaskCommand }"  Height="20" Width="60" Background="Red" Margin="289,30,51,60" RenderTransformOrigin="0.454,-0.144">
+        </Button>
+        <Button Grid.Row="01"  Name="AddButton2" Grid.Column="1" Content="Add"  Command="{Binding AddTaskCommand }"  Height="20" Width="60" Background="Green" Margin="27,30,313,60">
+        </Button>
+    </Grid>
+</Window>
