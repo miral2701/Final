@@ -21,8 +21,7 @@ namespace WPF_Final
     public partial class MainWindow : Window
     {
        static int index = 0;
-        private static ObservableCollection<MyTask> t=new ObservableCollection<MyTask>();
-        private static ObservableCollection<Project> p=new ObservableCollection<Project>();
+      
 
 
         public MainWindow()
@@ -54,8 +53,8 @@ namespace WPF_Final
                 deleteCommand2 = new DelegateCommand(() => DeleteTask());
                 changeCommand2 = new DelegateCommand(() => ChangeTask());
 
-                projects = p;
-                tasks = t;
+                projects = new ObservableCollection<Project>();
+                tasks = new ObservableCollection<MyTask>();
 
                 PropertyChanged += (sender, e) =>
                 {
@@ -94,11 +93,11 @@ namespace WPF_Final
 
             public ObservableCollection<MyTask> Collection2
             {
-                get => tasks;
+                get => projects[index].Tasks;
                 set
                 {
 
-                    tasks= value;
+                    projects[index].Tasks = value;
                     OnPropertyChanged(new PropertyChangedEventArgs(nameof(Collection2)));
 
                 }
@@ -161,6 +160,7 @@ namespace WPF_Final
             public void DeleteTask()
             {
 
+                projects[index].Tasks.RemoveAt(0);
 
             }
             public void ChangeTask()
@@ -192,7 +192,6 @@ namespace WPF_Final
         private void listBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             index=listBox1.SelectedIndex;
-            t = p[index].Tasks;
         }
     }
 

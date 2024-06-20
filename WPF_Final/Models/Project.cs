@@ -9,6 +9,10 @@ namespace WPF_Final.Models
 {
     class Project
     {
+        public Project()
+        {
+            Tasks = new ObservableCollection<MyTask>();
+        }
         public string Name { get; set; }
         public string Description { get; set; }
         public ObservableCollection<MyTask> Tasks { get; set; }
